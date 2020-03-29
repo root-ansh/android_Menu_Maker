@@ -3,7 +3,7 @@
 </P>
 
 # Menu Maker
-This is a small utility app that I mainly made for my mo and dad's Resteraunt. We are clients of online food markets 
+This is a small utility app that I mainly made for my mom and dad's Resteraunt. We are clients of online food markets 
 like swiggy and zomato, and these companies usually ask for a copy of updated menu everytime we want to make changes to the online version of
 menu.This creates a problem for use , since we can't afford to get 1000 new menu's printed for just a single correction
 
