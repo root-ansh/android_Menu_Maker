@@ -127,13 +127,13 @@ public class MenuEntryListAdapter extends PagedListAdapter<MenuEntry, MenuEntryL
             }
             else {
                 llItemDetails.setVisibility(View.VISIBLE);
-                tvItem.setText(""+menuEntry.getItemName());
+                tvItem.setText(""+ menuEntry.getItemName());
 
                 int pHalf= menuEntry.getPriceHalf();
                 String half = "[H]: Rs "+pHalf+"/- ";
                 tvRateHalf.setText(pHalf==0?"-":half);
 
-                int pFull = menuEntry.getPriceFull();
+                int pFull = menuEntry.getPriceHalf();
                 String full = "[F]: Rs "+pFull+"/-";
                 tvRateFull.setText(full);
 

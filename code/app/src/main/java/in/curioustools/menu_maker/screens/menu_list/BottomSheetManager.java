@@ -258,14 +258,14 @@ public class BottomSheetManager {
             etCategory.setText(editThisEntry.getCategoryName());
 
             int type = editThisEntry.getType();
-            isTypeItem = type == MenuEntryType.ITEM.ordinal();
+            isTypeItem = (type == MenuEntryType.ITEM.ordinal());
             toggleItemOrCategory();
 
             if (isTypeItem) {
                 etItem.setText(editThisEntry.getItemName());
 
 
-                isRateMulti = editThisEntry.getPriceHalf() != 0;
+                isRateMulti = (editThisEntry.getPriceHalf() != 0);
                 toggleSingleOrMultiRates();
 
                 if (isRateMulti) {
