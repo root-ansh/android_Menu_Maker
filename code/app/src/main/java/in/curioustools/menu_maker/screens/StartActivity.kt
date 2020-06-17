@@ -1,13 +1,14 @@
 /*
  * Copyright (c) 2020.
- * created on 28/3/20 1:49 PM
+ * created on 17/6/20 8:38 AM
  * by  Ansh Sachdeva (www.github.com/root-ansh)
  *
  */
 
-package `in`.curioustools.menu_maker
+package `in`.curioustools.menu_maker.screens
 
-import `in`.curioustools.menu_maker.components_menu_list.MenuEntryListActivity
+import `in`.curioustools.menu_maker.R
+import `in`.curioustools.menu_maker.screens.menu_list.MenuEntryListActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

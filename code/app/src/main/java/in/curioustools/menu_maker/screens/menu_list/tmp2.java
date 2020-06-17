@@ -6,25 +6,7 @@
  */
 
 // TODO: 28/3/20  
-package in.curioustools.menu_maker.components_menu_list;
-
-import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import in.curioustools.menu_maker.R;
-import in.curioustools.menu_maker.modal.MenuEntry;
+package in.curioustools.menu_maker.screens.menu_list;
 
 class tmp2{}
 

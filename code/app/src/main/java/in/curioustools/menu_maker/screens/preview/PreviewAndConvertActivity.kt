@@ -5,10 +5,11 @@
  *
  */
 
-package `in`.curioustools.menu_maker.components_preview
+package `in`.curioustools.menu_maker.screens.preview
 
 import `in`.curioustools.menu_maker.R
 import `in`.curioustools.menu_maker.modal.MenuEntry
+import `in`.curioustools.menu_maker.modal.MenuEntryType
 import android.content.Context
 import android.os.Bundle
 import android.print.PrintAttributes
@@ -82,7 +83,7 @@ class PreviewAndConvertActivity : AppCompatActivity() {
                     "</head><body><H1> Menu </H1><table cellspacing=\"0\">"
             var middle = "";
             for(i in entrylist){
-                if(i.type==MenuEntry.Type.CATEGORY){
+                if(i.type== MenuEntryType.CATEGORY.ordinal){
                     val category =""+
                             "<tr><th colspan=3 class=\"x\"><br></th></tr><tr><th colspan=3 " +
                             "class=\"c\">${i.categoryName}</th></tr><tr><th width=40%>ItemName</th><th>" +

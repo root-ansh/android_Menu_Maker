@@ -5,7 +5,7 @@
  *
  */
 
-package in.curioustools.menu_maker.components_menu_list;
+package in.curioustools.menu_maker.screens.menu_list;
 
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
@@ -38,6 +38,7 @@ import java.util.List;
 
 import in.curioustools.menu_maker.R;
 import in.curioustools.menu_maker.modal.MenuEntry;
+import in.curioustools.menu_maker.modal.MenuEntryType;
 
 @SuppressLint("SetTextI18n")
 public class BottomSheetManager {
@@ -257,11 +258,12 @@ public class BottomSheetManager {
             etCategory.setText(editThisEntry.getCategoryName());
 
             int type = editThisEntry.getType();
-            isTypeItem = type == MenuEntry.Type.ITEM;
+            isTypeItem = type == MenuEntryType.ITEM.ordinal();
             toggleItemOrCategory();
 
             if (isTypeItem) {
                 etItem.setText(editThisEntry.getItemName());
+
 
                 isRateMulti = editThisEntry.getPriceHalf() != 0;
                 toggleSingleOrMultiRates();

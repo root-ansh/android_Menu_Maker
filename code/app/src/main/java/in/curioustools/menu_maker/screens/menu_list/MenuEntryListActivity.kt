@@ -5,10 +5,10 @@
  *
  */
 
-package `in`.curioustools.menu_maker.components_menu_list
+package `in`.curioustools.menu_maker.screens.menu_list
 
 import `in`.curioustools.menu_maker.R
-import `in`.curioustools.menu_maker.components_preview.PreviewAndConvertActivity
+import `in`.curioustools.menu_maker.screens.preview.PreviewAndConvertActivity
 import `in`.curioustools.menu_maker.modal.MenuEntry
 import android.content.Context
 import android.content.Intent

@@ -1,11 +1,11 @@
 /*
  * Copyright (c) 2020.
- * created on 29/3/20 1:42 PM
+ * created on 29/3/20 11:27 AM
  * by  Ansh Sachdeva (www.github.com/root-ansh)
  *
  */
 
-package in.curioustools.menu_maker.components_preview;
+package in.curioustools.menu_maker.screens.menu_list;
 
 import android.app.Application;
 
@@ -15,24 +15,32 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.paging.PagedList;
 
-import java.util.List;
-
 import in.curioustools.menu_maker.db.MenuTableRepository;
 import in.curioustools.menu_maker.modal.MenuEntry;
 
-public class PreviewAndConverActivityVM extends AndroidViewModel {
+public class MenuEntryListActivityVM extends AndroidViewModel {
     private MenuTableRepository repo;
 
-    public PreviewAndConverActivityVM(@NonNull Application application) {
+    public MenuEntryListActivityVM(@NonNull Application application) {
         super(application);
         repo = new MenuTableRepository(application.getApplicationContext());
 
     }
 
-    @Nullable
-    public LiveData<List<MenuEntry>> getAllEntriesLivedata() {
-        return repo.getAllMenuEntriesLive();
+    public void insertOrUpdateMenuItems(@NonNull MenuEntry entry) {
+        repo.insertMenuEntry(entry);
     }
+
+     @Nullable
+    public LiveData<PagedList<MenuEntry>> getAllEntriesLivePaged() {
+        return repo.getAllMenuEntriesLivePaged();
+    }
+
+    public void deleteItemByID(@NonNull String itemID) {
+        repo.deleteMenuEntry(itemID);
+
+    }
+
 
 
 }

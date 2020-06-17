@@ -7,7 +7,6 @@
 
 package in.curioustools.menu_maker.modal;
 
-import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
@@ -35,13 +34,7 @@ public class MenuEntry {
     @ColumnInfo(name = "p_full")
     private int priceFull;
 
-    @IntDef( {Type.CATEGORY,Type.ITEM})
-    public  @interface  Type{
-        int CATEGORY = 0;
-        int ITEM = 21;
-    }
-
-    @Type @ColumnInfo(name = "type")
+    @ColumnInfo(name = "type")
     private int type;
 
     public MenuEntry() {
@@ -49,14 +42,14 @@ public class MenuEntry {
     }
     public MenuEntry(@NonNull String categoryName) {
         this.id = UUID.randomUUID().toString();
-        this.type = Type.CATEGORY;
+        this.type = MenuEntryType.CATEGORY.ordinal();
         this.categoryName = categoryName;
         this.priceHalf = -1;
         this.priceFull = -1;
     }
     public MenuEntry(@NonNull String categoryName , @NonNull String itemName, int priceHalf, int priceFull) {
         this.id = UUID.randomUUID().toString();
-        this.type = Type.ITEM;
+        this.type = MenuEntryType.ITEM.ordinal();
         this.categoryName = categoryName;
         this.itemName = itemName;
 
@@ -65,7 +58,7 @@ public class MenuEntry {
     }
     public MenuEntry(@NonNull String categoryName , @NonNull String itemName, int priceTotal) {
         this.id = UUID.randomUUID().toString();
-        this.type = Type.ITEM;
+        this.type = MenuEntryType.ITEM.ordinal();
         this.categoryName = categoryName;
         this.itemName = itemName;
         this.priceHalf = 0;
@@ -105,7 +98,7 @@ public class MenuEntry {
         this.id = id;
     }
 
-    public void setType(@Type int type) {
+    public void setType( int type) {
         this.type = type;
     }
 

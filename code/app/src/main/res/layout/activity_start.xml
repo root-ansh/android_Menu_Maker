@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_curved_c_grad_prim"
-    tools:context=".StartActivity">
+    tools:context=".screens.StartActivity">
 
     <ImageView
         android:layout_width="300dp"

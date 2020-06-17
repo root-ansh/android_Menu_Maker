@@ -11,18 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".components_preview.PreviewAndConvertActivity"
-            android:parentActivityName=".components_menu_list.MenuEntryListActivity">
+            android:name="in.curioustools.menu_maker.screens.preview.PreviewAndConvertActivity"
+            android:parentActivityName="in.curioustools.menu_maker.screens.menu_list.MenuEntryListActivity">
 
         </activity>
-        <activity android:name=".StartActivity">
+        <activity android:name=".screens.StartActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".components_menu_list.MenuEntryListActivity">
+        <activity android:name="in.curioustools.menu_maker.screens.menu_list.MenuEntryListActivity">
 
         </activity>
     </application>

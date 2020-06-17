@@ -4,7 +4,7 @@
  * by  Ansh Sachdeva (www.github.com/root-ansh)
  *
  */
-package in.curioustools.menu_maker.components_menu_list;
+package in.curioustools.menu_maker.screens.menu_list;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import in.curioustools.menu_maker.R;
 import in.curioustools.menu_maker.modal.MenuEntry;
+import in.curioustools.menu_maker.modal.MenuEntryType;
 
 @SuppressLint("SetTextI18n")
 public class MenuEntryListAdapter extends PagedListAdapter<MenuEntry, MenuEntryListAdapter.RvHolder> {
@@ -119,7 +120,7 @@ public class MenuEntryListAdapter extends PagedListAdapter<MenuEntry, MenuEntryL
 
         }
         private void bindData(MenuEntry menuEntry) {
-            if (menuEntry.getType() == MenuEntry.Type.CATEGORY) {
+            if (menuEntry.getType() == MenuEntryType.CATEGORY.ordinal()) {
                 llCategory.setVisibility(View.VISIBLE);
                 tvCategory.setText("" + menuEntry.getCategoryName());
                 llItemDetails.setVisibility(View.GONE);
