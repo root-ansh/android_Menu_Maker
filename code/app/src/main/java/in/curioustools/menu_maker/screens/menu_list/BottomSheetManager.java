@@ -37,8 +37,8 @@ import java.io.FileOutputStream;
 import java.util.List;
 
 import in.curioustools.menu_maker.R;
-import in.curioustools.menu_maker.modal.MenuEntry;
-import in.curioustools.menu_maker.modal.MenuEntryType;
+import in.curioustools.menu_maker.db.MenuEntry;
+import in.curioustools.menu_maker.db.MenuEntryType;
 
 @SuppressLint("SetTextI18n")
 public class BottomSheetManager {

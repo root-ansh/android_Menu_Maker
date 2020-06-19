@@ -1,6 +1,6 @@
 package `in`.curioustools.menu_maker
 
-import `in`.curioustools.menu_maker.modal.MenuEntry
+import `in`.curioustools.menu_maker.db.MenuEntry
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -13,7 +13,7 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-
+/*
         val it = listOf<MenuEntry>(
             MenuEntry("a"),
             MenuEntry("b"),
@@ -31,8 +31,12 @@ class ExampleUnitTest {
         val filteredList = filteredStrings.distinct() //for reducing to only original strings
         println(filteredList)
 
+        */
         assertEquals(4, 2 + 2)
+
+
     }
+/*
 
     @Test
     fun testHtml(){
@@ -79,5 +83,31 @@ class ExampleUnitTest {
                     "</html>"
         println(htmlString)
         assertEquals(4,2+2)
+    }
+
+*/
+
+    @Test
+    fun testRndCat(){
+
+        println(MenuEntry.getRandomMenuCategory())
+        println(MenuEntry.getRandomMenuCategory())
+        println(MenuEntry.getRandomMenuCategory())
+        println(MenuEntry.getRandomMenuCategory())
+        println(MenuEntry.getRandomMenuCategory())
+
+        println(MenuEntry.getRandomMenuItem1Price())
+        println(MenuEntry.getRandomMenuItem1Price())
+        println(MenuEntry.getRandomMenuItem1Price())
+        println(MenuEntry.getRandomMenuItem1Price())
+        println(MenuEntry.getRandomMenuItem1Price())
+
+        println(MenuEntry.getRandomMenuItem2Price())
+        println(MenuEntry.getRandomMenuItem2Price())
+        println(MenuEntry.getRandomMenuItem2Price())
+        println(MenuEntry.getRandomMenuItem2Price())
+
+
+        assertEquals(true,true)
     }
 }

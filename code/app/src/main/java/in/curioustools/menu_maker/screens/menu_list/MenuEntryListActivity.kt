@@ -9,7 +9,7 @@ package `in`.curioustools.menu_maker.screens.menu_list
 
 import `in`.curioustools.menu_maker.R
 import `in`.curioustools.menu_maker.screens.preview.PreviewAndConvertActivity
-import `in`.curioustools.menu_maker.modal.MenuEntry
+import `in`.curioustools.menu_maker.db.MenuEntry
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -27,12 +27,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MenuEntryListActivity : AppCompatActivity() {
-     private val TAG = "MenuEntryListAct>>";
+    private val TAG = "MenuEntryListAct>>";
+
     //ui
     private var rvMenu: RecyclerView? = null;
     private var fabAdd: FloatingActionButton? = null
     private var bottomSheetView: LinearLayout? = null
     private var bottomSheetManager: BottomSheetManager? = null
+
     //uiListeners;
     private var fabClickListener: View.OnClickListener? = null;
     private var rvClickListener: MenuEntryListAdapter.OnMenuEntryClickListener? = null;
@@ -78,22 +80,24 @@ class MenuEntryListActivity : AppCompatActivity() {
     }
 
     private fun initDbVariables() {
-        viewmodel = ViewModelProvider.AndroidViewModelFactory(this.application).create(MenuEntryListActivityVM::class.java)
+        viewmodel = ViewModelProvider
+            .AndroidViewModelFactory(this.application)
+            .create(MenuEntryListActivityVM::class.java)
     }
 
     private fun initUi() {
 
         bottomSheetView = findViewById(R.id.ll_bottom_sheet_root);
-        bottomSheetManager = BottomSheetManager(bottomSheetView,viewmodel);
+        bottomSheetManager = BottomSheetManager(bottomSheetView, viewmodel);
 
         rvMenu = findViewById(R.id.rv_MenuListActivity_main);
         rvMenu?.layoutManager = LinearLayoutManager(this)
 
         fabAdd = findViewById(R.id.fab_add)
 
-        adp =MenuEntryListAdapter()
+        adp = MenuEntryListAdapter()
 
-        rvMenu?.adapter=adp
+        rvMenu?.adapter = adp
 
 
     }
@@ -107,7 +111,10 @@ class MenuEntryListActivity : AppCompatActivity() {
                     viewmodel?.deleteItemByID(menuEntry.id)
 
                 } else {
-                    Log.e(TAG, "onDeleteClick: could not perform delete operation, current item is null")
+                    Log.e(
+                        TAG,
+                        "onDeleteClick: could not perform delete operation, current item is null"
+                    )
                 }
             }
 
@@ -120,24 +127,25 @@ class MenuEntryListActivity : AppCompatActivity() {
 
     private fun startDBStream() {
         viewmodel?.allEntriesLivePaged?.observe(this, Observer {
-            if(it==null)return@Observer;
+            if (it == null) return@Observer;//no idea why
 
             adp?.submitList(it)
             adp?.notifyDataSetChanged()
 
             val filteredStrings = it.map { it.categoryName };
-            val filteredList = filteredStrings.distinct() //for reducing to only original strings
+            val filteredList = filteredStrings.distinct() 
+            //for reducing to only original strings
 
-            bottomSheetManager?.addHintsAdapterForCategory(this,filteredList)
+            bottomSheetManager?.addHintsAdapterForCategory(this, filteredList)
 
         })
     }
+
     private fun attachListeners() {
-        adp?.clickListener=rvClickListener;
+        adp?.clickListener = rvClickListener;
         fabAdd?.setOnClickListener(fabClickListener)
 
     }
-
 
 
     private fun openPreviewActivity(context: Context) {

@@ -17,7 +17,7 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 import in.curioustools.menu_maker.db.MenuTableRepository;
-import in.curioustools.menu_maker.modal.MenuEntry;
+import in.curioustools.menu_maker.db.MenuEntry;
 
 public class PreviewAndConverActivityVM extends AndroidViewModel {
     private MenuTableRepository repo;

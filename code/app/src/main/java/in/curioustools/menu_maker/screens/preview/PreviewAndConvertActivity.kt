@@ -8,8 +8,8 @@
 package `in`.curioustools.menu_maker.screens.preview
 
 import `in`.curioustools.menu_maker.R
-import `in`.curioustools.menu_maker.modal.MenuEntry
-import `in`.curioustools.menu_maker.modal.MenuEntryType
+import `in`.curioustools.menu_maker.db.MenuEntry
+import `in`.curioustools.menu_maker.db.MenuEntryType
 import android.content.Context
 import android.os.Bundle
 import android.print.PrintAttributes

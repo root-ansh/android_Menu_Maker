@@ -16,7 +16,7 @@ import androidx.lifecycle.LiveData;
 import androidx.paging.PagedList;
 
 import in.curioustools.menu_maker.db.MenuTableRepository;
-import in.curioustools.menu_maker.modal.MenuEntry;
+import in.curioustools.menu_maker.db.MenuEntry;
 
 public class MenuEntryListActivityVM extends AndroidViewModel {
     private MenuTableRepository repo;

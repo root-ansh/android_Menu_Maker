@@ -20,8 +20,8 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import in.curioustools.menu_maker.R;
-import in.curioustools.menu_maker.modal.MenuEntry;
-import in.curioustools.menu_maker.modal.MenuEntryType;
+import in.curioustools.menu_maker.db.MenuEntry;
+import in.curioustools.menu_maker.db.MenuEntryType;
 
 @SuppressLint("SetTextI18n")
 public class MenuEntryListAdapter extends PagedListAdapter<MenuEntry, MenuEntryListAdapter.RvHolder> {

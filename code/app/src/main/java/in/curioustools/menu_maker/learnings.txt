@@ -1,1 +1,0 @@
-1. Changing an entity file from java to kotlin will still require a version upgrade

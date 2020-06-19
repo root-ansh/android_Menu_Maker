@@ -3,6 +3,7 @@
     package="in.curioustools.menu_maker">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,21 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name="in.curioustools.menu_maker.screens.preview.PreviewAndConvertActivity"
-            android:parentActivityName="in.curioustools.menu_maker.screens.menu_list.MenuEntryListActivity">
-
-        </activity>
-        <activity android:name=".screens.StartActivity">
-
+        <activity android:name=".screens.tmp_testing.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="in.curioustools.menu_maker.screens.menu_list.MenuEntryListActivity">
+        <activity
+            android:name=".screens.preview.PreviewAndConvertActivity"
+            android:parentActivityName=".screens.menu_list.MenuEntryListActivity"></activity>
+        <activity android:name=".screens.StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity android:name=".screens.menu_list.MenuEntryListActivity"></activity>
     </application>
 
 </manifest>
