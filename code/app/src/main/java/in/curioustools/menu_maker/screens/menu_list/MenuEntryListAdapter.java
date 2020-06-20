@@ -53,7 +53,7 @@ public class MenuEntryListAdapter extends PagedListAdapter<MenuEntry, MenuEntryL
     public RvHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.layout_menu_entry, parent, false);
+                .inflate(R.layout.layout_menu_entry_old, parent, false);
 
         return new RvHolder(v);
     }
@@ -130,11 +130,11 @@ public class MenuEntryListAdapter extends PagedListAdapter<MenuEntry, MenuEntryL
                 tvItem.setText(""+ menuEntry.getItemName());
 
                 int pHalf= menuEntry.getPriceHalf();
-                String half = "[H]: Rs "+pHalf+"/- ";
-                tvRateHalf.setText(pHalf==0?"-":half);
+                String half = "Half: Rs "+pHalf+"";
+                tvRateHalf.setText(pHalf==0?"":half);
 
-                int pFull = menuEntry.getPriceHalf();
-                String full = "[F]: Rs "+pFull+"/-";
+                int pFull = menuEntry.getPriceFull();
+                String full = "Full: Rs "+pFull+"";
                 tvRateFull.setText(full);
 
                 llCategory.setVisibility(View.GONE);
@@ -143,8 +143,8 @@ public class MenuEntryListAdapter extends PagedListAdapter<MenuEntry, MenuEntryL
         private void setupDefaultData() {
             tvCategory.setText("");
             tvItem.setText("");
-            tvRateHalf.setText("-");
-            tvRateFull.setText("-");
+            tvRateHalf.setText("");
+            tvRateFull.setText("");
 
             llCategory.setVisibility(View.GONE);
 

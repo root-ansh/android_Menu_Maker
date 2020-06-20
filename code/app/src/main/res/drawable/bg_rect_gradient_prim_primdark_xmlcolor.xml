@@ -5,5 +5,5 @@
         android:endColor="@color/colorPrimaryDark"
         android:startColor="@color/colorPrimary" />
 
-    <corners android:radius="4dp" />
+
 </shape>

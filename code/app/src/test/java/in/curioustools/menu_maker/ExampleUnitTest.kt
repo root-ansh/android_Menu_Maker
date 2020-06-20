@@ -1,6 +1,7 @@
 package `in`.curioustools.menu_maker
 
 import `in`.curioustools.menu_maker.db.MenuEntry
+import `in`.curioustools.menu_maker.modal.*
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -36,78 +37,38 @@ class ExampleUnitTest {
 
 
     }
-/*
 
     @Test
-    fun testHtml(){
-        var htmlString = "<html><head>";
-        htmlString +=
-            "<style type=\"text/css\" media=\"print\">\n" +
-                    "@page{size:  auto; margin: 0mm;}\n" +
-                    "html{background-color: #FFFFFF;margin: 0px;}\n" + "body{padding: 1%;}\n" +
-                    "</style>\n";
-        htmlString +=
-            "<style>\n" +
-                    "body {background-color: #efffea; }\n" +
-                    "table {margin: auto;width: calc(100% - 40px);}\n" +
-                    "td {text-align: center;vertical-align: middle;}\n" +
-                    "th {background-color: #8cba51;color: white;}\n" +
-                    "tr{background-color: white;}\n" +
-                    ".x{background-color:#efffea;}\n" +
-                    ".c{color:black;}\n" +
-                    "</style></head>\n";
-
-        htmlString += "<body>\n" + "<H1> Menu </H1>" + "<table cellspacing=\"0\">\n";
-
-        htmlString+=
-
-            "<tr><th colspan=3 class=\"x\"><br></th></tr>\n" +
-                    "<tr><th colspan=3 class=\"c\">Users</th></tr>\n" +
-                    "<tr><th width=40%>ItemName</th><th>Rate(Half)</th><th>Rate(Full)</th></tr>\n" +
-                    "<tr><td>P1</td><td>N1</td><td>E1</td></tr>\n" +
-                    "<tr><td>P2</td><td>N2</td><td>E2</td></tr>\n" +
-                    "<tr><td>P3</td><td>N2</td><td>E3</td></tr>\n" +
-                    "\n" +
-                    "<tr><th colspan=3 class=\"x\"><br></th></tr>\n" +
-                    "<tr><th colspan=3 class=\"c\">Users</th></tr>\n" +
-                    "<tr><th width=40%>ItemName</th><th>Rate(Half)</th><th>Rate(Full)</th></tr>\n" +
-                    "<tr><td>P1</td><td>N1</td><td>E1</td></tr>\n" +
-                    "<tr><td>P2</td><td>N2</td><td>E2</td></tr>\n" +
-                    "<tr><td>P3</td><td>N2</td><td>E3</td></tr>\n" +
-                    "<tr><td>P1</td><td>N1</td><td>E1</td></tr>\n" +
-                    "<tr><td>P2</td><td>N2</td><td>E2</td></tr>\n" +
-                    "<tr><td>P3</td><td>N2</td><td>E3</td></tr>\n" +
-                    "\n" +
-                    "</table>\n" +
-                    "</body>\n" +
-                    "</html>"
-        println(htmlString)
-        assertEquals(4,2+2)
+    fun testList(){
+        val inpList = listOf(
+            MenuCategoryWithAssocItems(
+                MenuCategory("cat1"),
+                listOf(getRandomMenuItem1Price(), getRandomMenuItem2Price(), getRandomMenuItem1Price())
+            )
+        )
     }
 
-*/
+    fun convert(items:List<MenuCategoryWithAssocItems>):List<Any>{
+        val res = mutableListOf<Any>()
+        items.forEach {catWithItem->
+
+            res.add(catWithItem.category)
+
+            catWithItem.items.forEach { itm->
+                res.add(items) }
+        }
+
+        return res.toList()
+    }
 
     @Test
-    fun testRndCat(){
+    fun test (){
+        val categories = getSampleCategoriesList()
+        val categoriesWithBoolean =categories.map { mutableListOf(it,false) }
+        categoriesWithBoolean[0][1]=true
 
-        println(MenuEntry.getRandomMenuCategory())
-        println(MenuEntry.getRandomMenuCategory())
-        println(MenuEntry.getRandomMenuCategory())
-        println(MenuEntry.getRandomMenuCategory())
-        println(MenuEntry.getRandomMenuCategory())
-
-        println(MenuEntry.getRandomMenuItem1Price())
-        println(MenuEntry.getRandomMenuItem1Price())
-        println(MenuEntry.getRandomMenuItem1Price())
-        println(MenuEntry.getRandomMenuItem1Price())
-        println(MenuEntry.getRandomMenuItem1Price())
-
-        println(MenuEntry.getRandomMenuItem2Price())
-        println(MenuEntry.getRandomMenuItem2Price())
-        println(MenuEntry.getRandomMenuItem2Price())
-        println(MenuEntry.getRandomMenuItem2Price())
-
-
-        assertEquals(true,true)
+        categoriesWithBoolean.forEach {  println(it)}
     }
+
+
 }

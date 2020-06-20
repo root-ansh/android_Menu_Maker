@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:background="@drawable/bg_curved_c_grad_prim"
+        android:background="@drawable/bg_rect_gradient_prim_primdark_xmlcolor"
         android:orientation="horizontal"
         android:layout_marginBottom="4dp"
         android:elevation="2dp"
@@ -88,15 +88,15 @@
                 android:textSize="16sp"
                 tools:text="Banana is the national food of india" />
 
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="2dp"
-                android:background="@color/grey_aaa" />
+<!--            <View-->
+<!--                android:layout_width="2dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginStart="8dp"-->
+<!--                android:layout_marginTop="2dp"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:layout_marginBottom="2dp"-->
+<!--                android:background="@color/grey_aaa" />-->
 
             <TextView
                 android:id="@+id/tv_p_half"
@@ -153,7 +153,7 @@
                 android:layout_margin="2dp"
                 android:background="@drawable/bg_curved_stroke_blue"
                 android:drawableStart="@drawable/ic_edit_primary"
-                android:drawableTint="@color/green"
+                android:drawableTint="@color/green_5ee"
                 android:drawablePadding="16dp"
                 android:gravity="center"
                 android:paddingStart="8dp"
@@ -161,7 +161,7 @@
                 android:paddingEnd="16dp"
                 android:paddingBottom="8dp"
                 android:text="Edit"
-                android:textColor="@color/green"
+                android:textColor="@color/green_5ee"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -178,7 +178,7 @@
                 android:paddingEnd="16dp"
                 android:paddingBottom="8dp"
                 android:text="Delete"
-                android:textColor="@color/red"
+                android:textColor="@color/red_e53"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 

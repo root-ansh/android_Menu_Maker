@@ -17,7 +17,7 @@
             android:id="@+id/rv_MenuListActivity_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/layout_menu_entry"/>
+            tools:listitem="@layout/layout_menu_entry_old"/>
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

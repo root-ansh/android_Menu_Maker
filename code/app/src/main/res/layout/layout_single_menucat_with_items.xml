@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020.
+  ~ created on 20/6/20 4:46 AM
+  ~ by  Ansh Sachdeva (www.github.com/root-ansh)
+  ~
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_menu_cat_with_items_root"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="24dp"
+
+    android:orientation="vertical"
+
+    >
+
+    <TextView
+
+        android:id="@+id/tv_cat_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:fontFamily="sans-serif"
+        android:textAllCaps="false"
+        android:textColor="@color/black_000"
+        android:textSize="24sp"
+
+        android:padding="8dp"
+
+        android:textStyle="bold"
+
+        tools:text="Fruits" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_items_for_single_cat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+
+        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:listitem="@layout/layout_single_menuitem"
+        />
+
+
+</LinearLayout>

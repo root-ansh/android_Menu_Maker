@@ -1,10 +1,10 @@
 /*
  * Copyright (c) 2020.
- * created on 29/3/20 5:49 AM
+ * created on 19/6/20 1:11 PM
  * by  Ansh Sachdeva (www.github.com/root-ansh)
  *
  */
-package `in`.curioustools.menu_maker.modal
+package `in`.curioustools.menu_maker.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -23,10 +23,10 @@ data class MenuEntry(
     var itemName: String = "",
 
     @ColumnInfo(name = "p_half")
-    var priceHalf: Int = -1,
+    var priceHalf: Int = 0,
 
     @ColumnInfo(name = "p_full")
-    var priceFull: Int = -1,
+    var priceFull: Int = 0,
 
     @ColumnInfo(name = "type")
     var type: Int = MenuEntryType.CATEGORY.ordinal

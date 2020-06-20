@@ -12,8 +12,6 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import in.curioustools.menu_maker.modal.MenuEntry;
-
 
 public class MenuTableRepository {
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2020.
+  ~ created on 20/6/20 3:00 AM
+  ~ by  Ansh Sachdeva (www.github.com/root-ansh)
+  ~
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_fff"
+    tools:context=".screens.tmp_testing2.TmpTestingActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_menu_entries"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/layout_single_menucat_with_items"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

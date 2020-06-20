@@ -5,7 +5,7 @@
  *
  */
 
-@file:Suppress("FunctionName")
+@file:Suppress("FunctionName", "SpellCheckingInspection")
 
 package `in`.curioustools.menu_maker.modal
 
@@ -17,10 +17,37 @@ import kotlin.random.Random
 
 //==================main entities===================================================================
 // background we have to create a databse for a resteraunt. resteraunt has many categories of items
-// like parathas(tawa paratha, gobi paratha, aloo paratha), sabzi(aloo gobhi, mix veg), paneer(..) etc
-// thus for category:item relation, its 1:many . also, a particular item like paneer can belong to
-// multiple
+// like parathas(tawa paratha, gobi paratha, aloo paratha), sabzi(aloo gobhi, mix veg), paneer(shahipaneer) etc
+// thus for category:item relation, its 1:many . also, a particular item like shahi paneer can belong to
+// multiple categories like both sabzi an paneer, so we there is a item:category relation as 1:many
+// The 2 insights above are nough to classify this db as many to many, but i had some more thoughts
+//
+// So we have some relations as A->B(b1,b2) and some relations as B->A(a1,a2) and since not all
+// items are in multiple categories , we can say that "some" items have 1:1 relation. Thus i will
+// categorize this relation as "1->1" , "1->many" and "many->1" , but not "many->many", since the
+// complete graph isn't exactly connected . i won't even add a "1<-1" connection (note the direction)
+// because what if we only have to fetch categories  for  items showing in more than 1 category?
+// then having a reverse query won't be good.
+//
+// But these are all just abstract stuff. if we were to believe google, one:one or many:many are not
+// directed relations . if there is a1 directional road from a->b and one directional road from b->a
+// this means there is one single bi directional road from a<-->b  . this is the approach we usually
+// use. that is, keeping the 2 tables aside and 1 relations table for their one-one or one-many or
+// many-many relation.
+//
+// other than that, we create some kind of helper classes to get data in the format we want. this db
+// exhibits the the same way using the modern room libs :
+//           //room
+//            def room_version = "2.2.5"
+//            implementation "androidx.room:room-runtime:$room_version"
+//
+//            annotationProcessor "androidx.room:room-compiler:$room_version"  //JAVA
+//            kapt "androidx.room:room-compiler:$room_version" //KOTLIN
+//            implementation "androidx.room:room-ktx:$room_version" //Kotlin Extensions and Coroutines support for Room
+//todo :figure out all the practical queries and add it to templates
+//
 
+//==================main entities===================================================================
 
 @Entity(tableName = "menu_cat")
 data class MenuCategory(
@@ -87,7 +114,7 @@ data class MenuCategoryWithAssocItems(
                 )
         )
 
-        val items: List<MenuItem>
+        val items: List<MenuItem> = listOf()
 
 ) {
     override fun toString() = "N_Cat(name=${category.name}, items=${items.map { it.itemName }})"//Nested Category
@@ -103,7 +130,7 @@ data class MenuItemWithAssocCategories(
                 )
         )
 
-        val categories: List<MenuCategory>
+        val categories: List<MenuCategory> = listOf()
 
 ) {
     override fun toString() = "N_Item(name=${item.itemName}, Categories=${categories.map { it.name }})"
@@ -165,6 +192,7 @@ interface MenuActionsDao {
 //    fun insertItemAndAssocCategories(itemWithCategories: MenuItemWithAssocCategories)
 //    fun insertCategoryAndAssocItems(categoryWithItems: MenuCategoryWithAssocItems)
 
+    //todo :livedata or coroutine or rx backed queries for all of these
 
 }
 
@@ -213,6 +241,163 @@ fun getRandomMenuItem1Price(): MenuItem {
     val rnd = Random.nextInt(0, 1000) % 200
     return MenuItem("itm_$rnd", rnd + 50)
 }
+
+
+fun getSampleManyManyListCI():List<MenuCategoryWithAssocItems>{
+
+    val items = listOf(
+        //Breads
+        MenuItem("Naan",25),        MenuItem("Tawa Roti",7),     MenuItem("Tandoori Roti",5),
+        MenuItem("Lachha",15),       MenuItem("Aloo Paratha",20),MenuItem("Gobhi Paratha",35),
+        MenuItem("Paneer Paratha",25),
+
+        //Daals
+        MenuItem("Dal Makhini",50,80), MenuItem("Dal Peeli",40,70), MenuItem("Dal Fry",80),
+        MenuItem("Dal Tadks",50,80), MenuItem("Rajma",40,90)/*also a subzi*/, MenuItem("Chhole",50,90),
+        MenuItem("Chhole Fry",60,100),
+
+
+        //Sabzis
+        MenuItem("Aloo Gobhi",70,100), MenuItem("kadhi",120), MenuItem("Aloo matar",70,100),
+
+        //Paneers
+        MenuItem("Shahi Paneer",90,150), MenuItem("Kadhai Paneer",100,160),
+        MenuItem("Aloo Paneer",100,110)/*also a subzi*/,
+
+        //Extras
+        MenuItem("Butter",5),
+
+        //Snacks
+        MenuItem("Muradabadi Dal",40),/*also a a dal*/
+        MenuItem("Pizza",150)
+    )
+    val cats = listOf(
+        MenuCategory("Breads"),
+        MenuCategory("Dals"),
+        MenuCategory("Sabzi"),
+        MenuCategory("Paneer"),
+        MenuCategory("Extras"),
+        MenuCategory("Snacks")
+    )
+
+    return listOf(
+
+        MenuCategoryWithAssocItems(cats[0], items.subList(0,7)),
+
+        MenuCategoryWithAssocItems(cats[1],items.subList(7,14) ),
+
+        MenuCategoryWithAssocItems(cats[2],items.subList(14,17)),
+
+        MenuCategoryWithAssocItems(cats[3],items.subList(17,20)),
+
+        MenuCategoryWithAssocItems(cats[4],items.subList(20,21))
+
+        )
+
+
+
+}
+
+
+fun getSampleCategoriesList()= listOf(
+    MenuCategory("Breads"),
+    MenuCategory("Dals"),
+    MenuCategory("Sabzi"),
+    MenuCategory("Paneer"),
+    MenuCategory("Extras"),
+    MenuCategory("Snacks")
+)
+fun getSampleItemList() = listOf(
+    //Breads
+    MenuItem("Naan",25),
+
+
+    //Daals
+    MenuItem("Dal Makhini",50,80),
+
+    //Sabzis
+    MenuItem("Aloo Gobhi",70,100),
+
+    //Paneers
+    MenuItem("Shahi Paneer",90,150),
+
+    //Extras
+    MenuItem("Butter",5),
+
+    //Snacks
+    MenuItem("Muradabadi Dal",40),/*also a a dal*/
+    MenuItem("Pizza",150)
+
+
+    )
+
+
+fun getSampleCatItemOneOneDataCI(){//:List<MenuCategoryWithAssocItems>{
+//    // all data is of format Category--Item. no category has 2 items, no item belongs to 2 categories
+//    //return type looks like that of category->list<Item>, but that's just a representation
+//
+//    val items = getSampleItemList()
+//    val cats = getSampleCategoriesList()
+//
+//    return listOf(
+//        MenuCategoryWithAssocItems(cats[0], listOf(items[0])),  /* BREADS----[ NAAN ] */
+//        MenuCategoryWithAssocItems(cats[1], listOf(items[1])),  /* BREADS----[ NAAN ] */
+//        MenuCategoryWithAssocItems(cats[2], listOf(items[2])),  /* BREADS----[ NAAN ] */
+//        MenuCategoryWithAssocItems(cats[3], listOf(items[3])),  /* BREADS----[ NAAN ] */
+//        MenuCategoryWithAssocItems(cats[4], listOf(items[4])),  /* BREADS----[ NAAN ] */
+//        MenuCategoryWithAssocItems(cats[5], listOf(items[6]))   /* EXTRAS----[ PIZZA ] */
+//    )
+    //todo
+
+
+}
+fun getSampleCatItemOneOneDataIC(){//}:List<MenuItemWithAssocCategories>{
+    // all data is of format Category--Item. no category has 2 items, no item belongs to 2 categories
+    //return type looks like that of Item->list<Category>, but that's just a representation
+//
+//    val items = getSampleItemList()
+//    val cats = getSampleCategoriesList()
+//
+//    return listOf(
+//        MenuItemWithAssocCategories(items[0], listOf(cats[0])),  /* NAAN----[ BREADS ] */
+//        MenuItemWithAssocCategories(items[1], listOf(cats[1])),  /* NAAN----[ BREADS ] */
+//        MenuItemWithAssocCategories(items[2], listOf(cats[2])),  /* NAAN----[ BREADS ] */
+//        MenuItemWithAssocCategories(items[3], listOf(cats[3])),  /* NAAN----[ BREADS ] */
+//        MenuItemWithAssocCategories(items[4], listOf(cats[4])),  /* NAAN----[ BREADS ] */
+//        MenuItemWithAssocCategories(items[5], listOf(cats[6]))   /* PIZZA----[ EXTRAS ] */
+//    )
+
+    // TODO: 20/06/20
+
+}
+
+fun getSampleCatItemOneManyDataCI(){//:List<MenuCategoryWithAssocItems>{
+    // all data is of format Category-->list<Item>. category could have multiple items, but items
+    // of one category will not belong to other
+//
+//    val items = getSampleItemList()
+//    val cats = getSampleCategoriesList()
+//
+//    return listOf(
+//        MenuCategoryWithAssocItems(cats[0], listOf(items[0])),
+//        MenuCategoryWithAssocItems(cats[1], listOf(items[1])),
+//        MenuCategoryWithAssocItems(cats[2], listOf(items[2])),
+//        MenuCategoryWithAssocItems(cats[3], listOf(items[3])),
+//        MenuCategoryWithAssocItems(cats[4], listOf(items[4])),
+//        MenuCategoryWithAssocItems(cats[5], listOf(items[5]))
+//    )
+    // TODO: 20/06/20
+
+}
+fun getSampleCatItemOneManyDataIC(){//:List<MenuItemWithAssocCategories>{
+    // TODO: 20/06/20
+}
+
+
+
+
+
+// ====Tests for static dao methods(the one that does not return liv/rx/coroutine responses ========
 
 
 // =========================================instrument test runner(does not run sometimes) =========

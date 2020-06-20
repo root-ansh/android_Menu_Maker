@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_curved_c_grad_prim"
+    android:background="@drawable/bg_rect_gradient_prim_primdark_xmlcolor"
     tools:context=".screens.StartActivity">
 
     <ImageView

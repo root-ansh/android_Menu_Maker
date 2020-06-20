@@ -67,3 +67,6 @@ create tables, db , indexes
       }
 
 ```
+
+
+https://stackoverflow.com/questions/62478748/recyler-view-whose-each-item-contains-a-custom-flowable-layout
