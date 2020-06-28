@@ -5,13 +5,13 @@
  *
  */
 
-package `in`.curioustools.menu_maker.screens.tmp_testing2
+package `in`.curioustools.menu_maker.screens.complete_menu_list
 
 import `in`.curioustools.menu_maker.R
 import `in`.curioustools.menu_maker.modal.MenuCategory
 import `in`.curioustools.menu_maker.modal.MenuCategoryWithAssocItems
 import `in`.curioustools.menu_maker.modal.MenuItem
-import `in`.curioustools.menu_maker.screens.tmp_testing2.SingleItemHolder.*
+import `in`.curioustools.menu_maker.screens.complete_menu_list.SingleItemHolder.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
@@ -22,12 +22,19 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
+import kotlinx.android.synthetic.main.activity_edit_item.*
 
 
 // good help https://medium.com/@ashishkudale/android-list-inside-list-using-recyclerview-73cff2c4ea95
 // TODO: 20/06/20  menu category ke liye edit/delete
 class MenuCategoryWithItemsAdapter(
-    val dataList: List<MenuCategoryWithAssocItems>,  val showButtons: Boolean, val singleItemActions: SingleItemActions
+    var dataList: List<MenuCategoryWithAssocItems> = listOf(),
+    var showButtons: Boolean,
+    val singleItemActions: SingleItemActions,
+    val singleCategoryActions: SingleCategoryActions
 ) : RecyclerView.Adapter<SingleCatWithItemsHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SingleCatWithItemsHolder {
@@ -37,7 +44,7 @@ class MenuCategoryWithItemsAdapter(
     }
 
     override fun onBindViewHolder(holder: SingleCatWithItemsHolder, pos: Int) {
-        holder.bind(showButtons,dataList[pos],singleItemActions)
+        holder.bind(showButtons,dataList[pos],singleCategoryActions,singleItemActions)
     }
 
 
@@ -50,11 +57,13 @@ class SingleCatWithItemsHolder(v: View) : RecyclerView.ViewHolder(v) {
     private val tvCatName: TextView? = v.findViewById(R.id.tv_cat_name)
     private val rvItemsForSingleCat: RecyclerView? = v.findViewById(R.id.rv_items_for_single_cat)
     private val llRoot: LinearLayout? = v.findViewById(R.id.ll_menu_cat_with_items_root)
+    private val ibtCatEdit:ImageButton? = v.findViewById(R.id.ibt_cat_edit)
 
 
     fun bind(
         showButtons:Boolean,
         singleMenuCatItems: MenuCategoryWithAssocItems,
+        singleCategoryActions: SingleCategoryActions,
         singleItemActions: SingleItemActions
     ) {
 
@@ -73,18 +82,23 @@ class SingleCatWithItemsHolder(v: View) : RecyclerView.ViewHolder(v) {
 
         tvCatName?.text = singleMenuCatItems.category.name
 
-        rvItemsForSingleCat?.layoutManager =
-            LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
+        val fbLayout = FlexboxLayoutManager(itemView.context);
+        fbLayout.justifyContent = JustifyContent.FLEX_START
+        fbLayout.flexDirection = FlexDirection.ROW
+
+        rvItemsForSingleCat?.layoutManager =fbLayout
 
         rvItemsForSingleCat?.setHasFixedSize(true)
+        ibtCatEdit?.visibility = if(showButtons) VISIBLE else GONE
+        ibtCatEdit?.setOnClickListener { singleCategoryActions.onEditClick(singleMenuCatItems) }
+
+
 
         val adp = SingleEntryItemsAdapter(singleMenuCatItems, showButtons, singleItemActions)
 
         rvItemsForSingleCat?.adapter = adp
     }
 
-
-    // TODO: 20/06/20 somehow pass notify data set change
 
 }
 
@@ -120,7 +134,6 @@ class SingleItemHolder(v: View) : RecyclerView.ViewHolder(v) {
     private val tvPriceHalf: TextView? = v.findViewById(R.id.tv_itm_price_half)
     private val tvPriceFull: TextView? = v.findViewById(R.id.tv_itm_price_full)
     private val ibtEdit: ImageButton? = v.findViewById(R.id.ibt_itm_edit)
-    private val ibtDelete: ImageButton? = v.findViewById(R.id.ibt_itm_delete)
 
 
     fun bind(
@@ -172,21 +185,14 @@ class SingleItemHolder(v: View) : RecyclerView.ViewHolder(v) {
         }
 
 
-
-        ibtDelete?.apply {
-            if (showButtons) {
-                visibility = VISIBLE
-                setOnClickListener { itemActions.onDeleteClick(selfData, parent) }
-            } else {
-                setOnClickListener(null)
-                visibility = GONE
-
-            }
+        if(showButtons) {
+            itemView.setOnClickListener { itemActions.onEditClick(selfData, parent) }
         }
 
-        itemView.setOnClickListener { itemActions.onEditClick(selfData, parent) }
+    }
 
-
+    interface  SingleCategoryActions{
+        fun onEditClick (selfData: MenuCategoryWithAssocItems)
     }
 
 

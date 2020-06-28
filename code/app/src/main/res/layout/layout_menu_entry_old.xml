@@ -39,6 +39,7 @@
             android:background="@drawable/bg_curved_solid_white"
             android:drawableStart="@drawable/ic_edit_primary"
             android:gravity="center"
+            android:text="ssss"
             android:padding="8dp"
             android:layout_gravity="center"
             />
@@ -63,7 +64,7 @@
         android:id="@+id/ll_item_dets"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_curved_white_stroke_blue_dotted"
+        android:background="@drawable/bg_rect_curve4_solid_white_stroke_green_dotted_xmlcolor"
         android:padding="8dp"
 
         android:orientation="vertical"
@@ -151,7 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="2dp"
-                android:background="@drawable/bg_curved_stroke_blue"
+                android:background="@drawable/bg_rect_curve4_stroke_white_xmlcolor"
                 android:drawableStart="@drawable/ic_edit_primary"
                 android:drawableTint="@color/green_5ee"
                 android:drawablePadding="16dp"

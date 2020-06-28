@@ -8,7 +8,7 @@
 package `in`.curioustools.menu_maker.screens
 
 import `in`.curioustools.menu_maker.R
-import `in`.curioustools.menu_maker.screens.menu_list.MenuEntryListActivity
+import `in`.curioustools.menu_maker.screens.old_menu_list.MenuEntryListActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

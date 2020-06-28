@@ -17,8 +17,9 @@
         android:id="@+id/tv_cat_as_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_rect_curve16_stroke_green_xmlcolor"
+        android:background="@drawable/bg_rect_curve16_solid_white_stroke_green_xmlcolor"
         android:clickable="true"
+
         android:focusable="true"
 
         android:paddingStart="16dp"
@@ -31,7 +32,6 @@
         android:textColor="@color/green_5ee"
 
         android:textSize="12sp"
-        android:elevation="2dp"
 
 
         android:textStyle="bold" />

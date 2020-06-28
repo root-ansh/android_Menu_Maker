@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020.
+  ~ created on 20/6/20 3:00 AM
+  ~ by  Ansh Sachdeva (www.github.com/root-ansh)
+  ~
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_rect_gradient_prim_primdark_xmlcolor"
+
+    tools:context=".screens.complete_menu_list.ShowCompleteMenuActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_menu_entries"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:itemCount="2"
+        tools:listitem="@layout/layout_single_menucat_with_items"
+
+        />
+
+
+    <TextView
+        android:id="@+id/tv_add_new_item_or_cat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add new "
+        android:textAllCaps="true"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:padding="12sp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="8dp"
+        android:background="@drawable/bg_rect_curve32_solid_green_xmlcolor"
+        android:textColor="@color/white_fff"
+        android:elevation="4dp"
+        android:drawablePadding="8dp"
+        android:textStyle="bold"
+        android:drawableStart="@drawable/ic_add_white_fff"/>
+
+</FrameLayout>

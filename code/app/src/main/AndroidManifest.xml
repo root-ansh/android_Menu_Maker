@@ -11,16 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screens.tmp_testing2.EditItemActivity">
+        <activity
+            android:windowSoftInputMode="adjustPan"
+            android:name=".screens.edit_item_or_category.EditItemActivity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
-        <activity android:name=".screens.tmp_testing2.TmpTestingActivity">
+        <activity android:name=".screens.complete_menu_list.ShowCompleteMenuActivity">
 
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+
+
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
         <activity android:name=".screens.tmp_testing.TestActivity">
 
@@ -33,7 +41,7 @@
         </activity>
         <activity
             android:name=".screens.preview.PreviewAndConvertActivity"
-            android:parentActivityName=".screens.menu_list.MenuEntryListActivity" />
+            android:parentActivityName=".screens.old_menu_list.MenuEntryListActivity" />
         <activity android:name=".screens.StartActivity">
 
             <!-- <intent-filter> -->
@@ -43,7 +51,7 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".screens.menu_list.MenuEntryListActivity" />
+        <activity android:name=".screens.old_menu_list.MenuEntryListActivity" />
     </application>
 
 </manifest>

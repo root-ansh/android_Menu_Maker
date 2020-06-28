@@ -10,7 +10,9 @@
 package `in`.curioustools.menu_maker.modal
 
 import android.content.Context
+import android.os.Parcelable
 import androidx.room.*
+import kotlinx.android.parcel.Parcelize
 import java.util.*
 import kotlin.random.Random
 
@@ -44,19 +46,19 @@ import kotlin.random.Random
 //            annotationProcessor "androidx.room:room-compiler:$room_version"  //JAVA
 //            kapt "androidx.room:room-compiler:$room_version" //KOTLIN
 //            implementation "androidx.room:room-ktx:$room_version" //Kotlin Extensions and Coroutines support for Room
-//todo :figure out all the practical queries and add it to templates
+//todo :figure out all the practical queries and add it to templates, remove all the theory comments
 //
 
 //==================main entities===================================================================
 
-@Entity(tableName = "menu_cat")
+@Entity(tableName = "menu_cat") @Parcelize
 data class MenuCategory(
         @ColumnInfo(name = "cat_id") @PrimaryKey
         val id: String = UUID.randomUUID().toString().substring(0, 16),
 
         @ColumnInfo(name = "cat_name")
         var name: String
-) {
+) : Parcelable {
     constructor(catName: String) : this(name = catName)
 
     override fun toString(): String {
@@ -64,7 +66,7 @@ data class MenuCategory(
     }
 }
 
-@Entity(tableName = "menu_item")
+@Entity(tableName = "menu_item") @Parcelize
 data class MenuItem(
         @ColumnInfo(name = "item_id") @PrimaryKey
         var id: String = UUID.randomUUID().toString().substring(0, 16),
@@ -78,7 +80,7 @@ data class MenuItem(
         @ColumnInfo(name = "p_full")
         var priceFull: Int
 
-) {
+) : Parcelable {
     constructor(name: String, pHalf: Int, pFull: Int) : this(itemName = name, priceHalf = pHalf, priceFull = pFull)
     constructor(itemName: String, priceTotal: Int) : this(itemName = itemName, priceHalf = -1, priceFull = priceTotal)
 

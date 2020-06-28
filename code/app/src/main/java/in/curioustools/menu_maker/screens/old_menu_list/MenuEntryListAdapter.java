@@ -4,7 +4,7 @@
  * by  Ansh Sachdeva (www.github.com/root-ansh)
  *
  */
-package in.curioustools.menu_maker.screens.menu_list;
+package in.curioustools.menu_maker.screens.old_menu_list;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;

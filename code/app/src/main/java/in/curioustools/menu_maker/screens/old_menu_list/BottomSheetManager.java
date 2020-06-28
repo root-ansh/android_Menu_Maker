@@ -5,7 +5,7 @@
  *
  */
 
-package in.curioustools.menu_maker.screens.menu_list;
+package in.curioustools.menu_maker.screens.old_menu_list;
 
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
@@ -165,7 +165,7 @@ public class BottomSheetManager {
         Resources r = btItem.getContext().getResources();
 
         if (isTypeItem) {
-            btItem.setBackgroundResource(R.drawable.bg_curved_accent);
+            btItem.setBackgroundResource(R.drawable.bg_rect_curve4_solid_green_xmlocolor);
             btItem.setTextColor(r.getColor(R.color.white_fff));
             btCategory.setBackgroundResource(R.drawable.bg_curved_white_outline_accent_dotted);
             btCategory.setTextColor(r.getColor(R.color.colorAccent));
@@ -176,7 +176,7 @@ public class BottomSheetManager {
             toggleSingleOrMultiRates();
 
         } else {
-            btCategory.setBackgroundResource(R.drawable.bg_curved_accent);
+            btCategory.setBackgroundResource(R.drawable.bg_rect_curve4_solid_green_xmlocolor);
             btCategory.setTextColor(r.getColor(R.color.white_fff));
             btItem.setBackgroundResource(R.drawable.bg_curved_white_outline_accent_dotted);
             btItem.setTextColor(r.getColor(R.color.colorAccent));

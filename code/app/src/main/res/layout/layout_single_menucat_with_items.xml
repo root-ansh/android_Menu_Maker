@@ -6,35 +6,66 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ll_menu_cat_with_items_root"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_menu_cat_with_items_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="24dp"
 
     android:orientation="vertical"
 
+    tools:background="@drawable/bg_rect_gradient_prim_primdark_xmlcolor"
+
     >
 
-    <TextView
-
-        android:id="@+id/tv_cat_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_margin="8dp"
+        android:orientation="horizontal"
 
-        android:fontFamily="sans-serif"
-        android:textAllCaps="false"
-        android:textColor="@color/black_000"
-        android:textSize="24sp"
 
-        android:padding="8dp"
+        >
 
-        android:textStyle="bold"
+        <TextView
 
-        tools:text="Fruits" />
+            android:id="@+id/tv_cat_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+
+            android:fontFamily="sans-serif"
+            android:padding="12dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white_fff"
+
+            android:textSize="24sp"
+
+
+            android:textStyle="bold"
+
+            tools:text="Fruits" />
+
+        <ImageButton
+            android:id="@+id/ibt_cat_edit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_rect_curve16_solid_white_xmlcolor"
+            android:gravity="center"
+            android:scaleType="fitXY"
+            android:contentDescription="edit"
+            android:padding="8dp"
+            android:elevation="4dp"
+            android:tint="@color/colorPrimary"
+            android:src="@drawable/ic_edit_white_fff"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_items_for_single_cat"
@@ -42,10 +73,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="horizontal"
+        android:padding="8dp"
 
         tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:listitem="@layout/layout_single_menuitem"
+
         />
+
 
 
 </LinearLayout>

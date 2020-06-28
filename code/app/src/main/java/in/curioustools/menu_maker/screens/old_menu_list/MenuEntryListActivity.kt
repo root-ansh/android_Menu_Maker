@@ -5,7 +5,7 @@
  *
  */
 
-package `in`.curioustools.menu_maker.screens.menu_list
+package `in`.curioustools.menu_maker.screens.old_menu_list
 
 import `in`.curioustools.menu_maker.R
 import `in`.curioustools.menu_maker.screens.preview.PreviewAndConvertActivity

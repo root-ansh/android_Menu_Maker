@@ -7,25 +7,36 @@
     android:layout_height="wrap_content"
     tools:ignore="HardcodedText,ContentDescription"
 
-    android:padding="8dp"
-
     >
 
+    <ImageButton
+        android:id="@+id/ibt_itm_edit"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="end|top"
+        android:background="@drawable/bg_circle_solid_green_xmlcolor"
+        android:elevation="4dp"
+        android:padding="4dp"
+
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_edit_white_fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        tools:layout_editor_absoluteX="162dp" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="4dp"
         app:cardBackgroundColor="@color/white_fff"
-        >
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="8dp"
 
 
             >
@@ -39,8 +50,8 @@
                 android:ellipsize="end"
                 android:gravity="center|start"
                 android:padding="8dp"
-                android:text="dhaniya with methi paaz daana ajwain mixture"
 
+                android:text="dha"
 
                 android:textColor="@color/black_000"
                 android:textSize="16sp"
@@ -52,50 +63,37 @@
                 android:layout_height="1dp"
                 android:layout_gravity="center"
 
-                android:background="@color/colorPrimary"
-                android:padding="8dp" />
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:background="@color/grey_aaa" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp">
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp">
 
 
                 <TextView
                     android:id="@+id/tv_itm_price_half"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:layout_gravity="center"
-                    android:layout_marginEnd="4dp"
-                    android:background="@drawable/bg_rect_curve16_stroke_green_xmlcolor"
 
-                    android:drawableStart="@drawable/ic_letter_h_xmldrb_bg_green_xmlcolor"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_rect_curve16_solid_white_prime_green_xmlcolor"
+                    android:drawableStart="@drawable/ic_letter_h_xmldrb_bg_colorprim_xmlcolor"
                     android:drawablePadding="4dp"
                     android:gravity="center|start"
-
                     android:minWidth="60dp"
                     android:paddingStart="8dp"
                     android:paddingTop="4dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="4dp"
-
                     android:text="120/-"
-
                     android:textAllCaps="true"
                     android:textColor="@color/black_000"
-
-
                     android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_itm_price_full"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread"
-                    app:layout_constraintStart_toStartOf="parent"
-
-                    app:layout_constraintTop_toTopOf="parent"
-
-                    app:layout_constraintVertical_bias="0.5"
 
                     />
 
@@ -103,75 +101,27 @@
                     android:id="@+id/tv_itm_price_full"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:layout_gravity="center"
-                    android:layout_marginEnd="4dp"
-                    android:background="@drawable/bg_rect_curve16_stroke_green_xmlcolor"
-                    android:drawableStart="@drawable/ic_letter_f_xmldrb_bg_green_xmlcolor"
 
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/bg_rect_curve16_solid_white_stroke_green_xmlcolor"
+                    android:drawableStart="@drawable/ic_letter_f_xmldrb_bg_green_xmlcolor"
                     android:drawablePadding="4dp"
                     android:gravity="center|start"
                     android:minWidth="60dp"
-
                     android:paddingStart="8dp"
                     android:paddingTop="4dp"
                     android:paddingEnd="8dp"
                     android:paddingBottom="4dp"
                     android:text="120/-"
-
                     android:textAllCaps="true"
-
-
                     android:textColor="@color/black_000"
                     android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/ibt_itm_edit"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/tv_itm_price_half"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.5"
 
                     />
 
 
-                <ImageButton
-                    android:id="@+id/ibt_itm_edit"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="end|top"
-                    android:layout_marginEnd="4dp"
-                    android:background="@drawable/bg_circle_solid_green_xmlcolor"
-                    android:padding="6dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_edit_white_fff"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/ibt_itm_delete"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/tv_itm_price_full"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.5" />
-
-                <ImageButton
-                    android:id="@+id/ibt_itm_delete"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="4dp"
-                    android:background="@drawable/bg_circle_solid_red_xmlcolor"
-                    android:scaleType="center"
-                    android:src="@drawable/ic_delete_white_fff"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toEndOf="@+id/ibt_itm_edit"
-
-
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.5" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
         </LinearLayout>
 

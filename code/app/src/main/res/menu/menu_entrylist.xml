@@ -16,5 +16,14 @@
         android:orderInCategory="100"
 
         />
+    <item
+        android:id="@+id/menu_item_edit"
+        android:icon="@drawable/ic_edit_white_fff"
+        android:title="Edit Current Menu"
+        app:showAsAction="always|withText"
+        android:orderInCategory="100"
+
+        />
+
 
 </menu>

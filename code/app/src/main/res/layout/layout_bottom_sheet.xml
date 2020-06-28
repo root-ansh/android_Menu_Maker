@@ -267,7 +267,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/bg_curved_accent"
+        android:background="@drawable/bg_rect_curve4_solid_green_xmlocolor"
         android:padding="8dp"
         android:stateListAnimator="@null"
         android:text="save"
