@@ -1,10 +1,12 @@
 <P align=center>
-<img src="https://github.com/root-ansh/Menu-Maker/blob/master/code/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" width="250px" height="250px">
+<img src="https://raw.githubusercontent.com/root-ansh/Menu-Maker_v1/b0ad6b93994be8f4004d414d818539dcb2a1e4e3/code/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" width="250px" height="250px">
 </P>
 
 # Menu Maker
 
-(**UPDATE : 2020.07.13 :** v2 of this app will soon release with major ui, db and menu output changes . I will be probably releasing that as a private product. stay tuned :smile: )
+(**UPDATE : 2020.07.13 :** v2 of this app will soon release with major ui, db and menu output changes . I will be probably releasing that as a private product. 
+this project is currently [archieved](https://github.com/root-ansh/Menu-Maker_v1/tree/b0ad6b93994be8f4004d414d818539dcb2a1e4e3)
+:smile: )
 
 This is a small utility app that I mainly made for my mom and dad's Resteraunt. We are clients of online food markets 
 like swiggy and zomato, and these companies usually ask for a copy of updated menu everytime we want to make changes to the online version of
