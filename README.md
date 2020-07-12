@@ -4,8 +4,8 @@
 
 # Menu Maker
 
-(**Note : currently under active development** , on the main branch :P . would be soon pushing  some updates.
-currently, old apk is for v 1.0, but the building the app from source won't give the actual app )
+(**UPDATE : 2020.07.13 :** v2 of this app will soon release with major ui, db and menu output changes . I will be probably releasing that as a private product. stay tuned :smile: )
+
 This is a small utility app that I mainly made for my mom and dad's Resteraunt. We are clients of online food markets 
 like swiggy and zomato, and these companies usually ask for a copy of updated menu everytime we want to make changes to the online version of
 menu.This creates a problem for use , since we can't afford to get 1000 new menu's printed for just a single correction
