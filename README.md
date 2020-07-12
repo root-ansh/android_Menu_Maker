@@ -6,7 +6,7 @@
 
 (**UPDATE : 2020.07.13 :** v2 of this app will soon release with major ui, db and menu output changes . I will be probably releasing that as a private product. 
 this project is currently [archieved](https://github.com/root-ansh/Menu-Maker_v1/tree/b0ad6b93994be8f4004d414d818539dcb2a1e4e3)
-stay tune for more info [. <here:> ](https://github.com/root-ansh/prod_priv_menu_maker)  )
+stay tune for more info [. <here> ](https://github.com/root-ansh/prod_priv_menu_maker)  )
 
 
 
